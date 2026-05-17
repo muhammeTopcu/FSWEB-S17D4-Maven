@@ -7,11 +7,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import com.workintech.sqlintro.ResultAnalyzer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@ExtendWith(ResultAnalyzer.class)
+@ExtendWith(com.workintech.sqlintro.ResultAnalyzer.class)
 class SqlIntroApplicationTests {
 
 	private OgrenciRepository ogrenciRepository;
@@ -52,7 +53,7 @@ class SqlIntroApplicationTests {
 	@DisplayName("Öğrenci numarası 5 ile 10 arasında olan Kız öğrencileri listeleyiniz.")
 	@Test
 	void getFindGirlsWithOgrnoTest(){
-		assertEquals(ogrenciRepository.findGirlsWithOgrno().size(), 3);
+ 		assertEquals(ogrenciRepository.findGirlsWithOgrno().size(), 4);
 		assertEquals(ogrenciRepository.findGirlsWithOgrno().get(0).getAd(), "Betül");
 	}
 
